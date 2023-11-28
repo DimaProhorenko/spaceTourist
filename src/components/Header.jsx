@@ -36,10 +36,11 @@ Header.MobileNav = function HeaderMobileNav({
 	isOpen = false,
 	...restProps
 }) {
-	const openClass = isOpen ? 'translate-x-0' : '';
+	const transformClass = isOpen ? 'translate-x-0' : 'translate-x-full';
+	console.log(transformClass);
 	return (
 		<nav
-			className={`absolute top-0 right-0 h-screen w-2/3 p-3 bg-glass backdrop-blur-lg z-20 translate-x-full transition-transform ${openClass}`}
+			className={`absolute top-0 right-0 h-screen w-2/3 p-3 bg-glass backdrop-blur-lg z-20  transition-transform ${transformClass}`}
 			{...restProps}
 		>
 			<Header.NavList className="pt-20 px-5 flex flex-col gap-4">
@@ -113,7 +114,7 @@ Header.Link = function HeaderLink({ children, href, ...restProps }) {
 		<NavLink
 			to={href}
 			{...restProps}
-			className="cursor-pointer pb-4 uppercase tracking-wider text-lg inline-block relative before:w-full before:h-px before:bg-white before:absolute before:bottom-px before:inset-x-0 before:scale-x-0 hover:before:scale-x-100"
+			className="cursor-pointer pb-4 uppercase tracking-wider text-lg inline-block relative before:w-full before:h-px before:bg-white before:absolute before:bottom-px before:inset-x-0 before:scale-x-0 hover:before:scale-x-100 aria-[current=page]:before:scale-x-100"
 		>
 			{children}
 		</NavLink>
