@@ -3,6 +3,7 @@ import { Header } from '../components';
 
 function HeaderContainer() {
 	const [windowWidth, setWindowWidth] = useState(0);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const isMobile = windowWidth <= 768;
 	console.log(isMobile);
 
@@ -11,12 +12,13 @@ function HeaderContainer() {
 			setWindowWidth(window.innerWidth);
 		};
 
-		document.addEventListener('resize', handleResize);
+		window.addEventListener('resize', handleResize);
 		document.addEventListener('DOMContentLoaded', handleResize);
+
 		handleResize();
 
 		return () => {
-			document.removeEventListener('resize', handleResize);
+			window.removeEventListener('resize', handleResize);
 			document.removeEventListener('DOMContentLoaded', handleResize);
 		};
 	}, []);
@@ -25,10 +27,13 @@ function HeaderContainer() {
 		<Header>
 			<Header.Container>
 				<Header.Logo />
-				<Header.MobileNav>
-					<h1>Nav</h1>
-				</Header.MobileNav>
-				{isMobile && <Header.Toggler />}
+				{isMobile && <Header.MobileNav isOpen={isMenuOpen} />}
+				{isMobile && (
+					<Header.Toggler
+						defaultIsOpen={isMenuOpen}
+						cb={() => setIsMenuOpen((prevState) => !prevState)}
+					/>
+				)}
 			</Header.Container>
 		</Header>
 	);
