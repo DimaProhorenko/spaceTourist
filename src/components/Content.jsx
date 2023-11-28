@@ -4,7 +4,7 @@ function Content({ children, ...restProps }) {
 	return (
 		<div
 			{...restProps}
-			className="max-w-[500px] mx-auto flex flex-col justify-center min-h-screen gap-4 lg:max-w-[900px] lg:flex-row lg:items-center lg:justify-start text-center lg:text-left"
+			className="max-w-[500px] mx-auto flex flex-col justify-center min-h-screen gap-10 lg:gap-5 lg:max-w-[900px] lg:flex-row lg:items-center lg:justify-start text-center lg:text-left"
 		>
 			{children}
 		</div>
@@ -17,9 +17,9 @@ Content.propTypes = {
 
 export default Content;
 
-Content.Item = function ContentItem({ children, ...restProps }) {
+Content.Item = function ContentItem({ children, className, ...restProps }) {
 	return (
-		<div className="basis-1/2" {...restProps}>
+		<div className={`basis-1/2 ${className || ''}`} {...restProps}>
 			{children}
 		</div>
 	);
@@ -27,6 +27,7 @@ Content.Item = function ContentItem({ children, ...restProps }) {
 
 Content.Item.propTypes = {
 	children: PropTypes.any.isRequired,
+	className: PropTypes.any,
 };
 
 Content.Title = function ContentTitle({ children, ...restProps }) {

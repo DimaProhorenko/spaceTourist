@@ -11,6 +11,9 @@ export default {
 				'title-sm': '5rem',
 				'title-lg': '9.375rem',
 			},
+			colors: {
+				glass: 'rgba(255, 255, 255, 0.4)',
+			},
 		},
 	},
 	plugins: [],
