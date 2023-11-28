@@ -7,6 +7,10 @@ export default {
 				center: true,
 				padding: '1rem',
 			},
+			fontSize: {
+				'title-sm': '5rem',
+				'title-lg': '9.375rem',
+			},
 		},
 	},
 	plugins: [],
