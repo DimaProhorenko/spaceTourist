@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+
 import { Logo } from './';
 import burgerIcon from '../assets/shared/icon-hamburger.svg';
 import closeIcon from '../assets/shared/icon-close.svg';
@@ -92,10 +94,8 @@ Header.NavList.propTypes = {
 Header.NavItem = function HeaderNavItem({ children, href, index }) {
 	return (
 		<li>
-			<Header.Link>
-				<span className="mr-2 font-bold" href={href}>
-					0{index}
-				</span>
+			<Header.Link href={href}>
+				<span className="mr-2 font-bold">0{index}</span>
 				{children}
 			</Header.Link>
 		</li>
@@ -108,19 +108,21 @@ Header.NavItem.propTypes = {
 	index: PropTypes.number.isRequired,
 };
 
-Header.Link = function HeaderLink({ children, ...restProps }) {
+Header.Link = function HeaderLink({ children, href, ...restProps }) {
 	return (
-		<a
+		<NavLink
+			to={href}
 			{...restProps}
 			className="cursor-pointer pb-4 uppercase tracking-wider text-lg inline-block relative before:w-full before:h-px before:bg-white before:absolute before:bottom-px before:inset-x-0 before:scale-x-0 hover:before:scale-x-100"
 		>
 			{children}
-		</a>
+		</NavLink>
 	);
 };
 
 Header.Link.propTypes = {
 	children: PropTypes.any.isRequired,
+	href: PropTypes.string.isRequired,
 };
 
 Header.Toggler = function HeaderToggler({ defaultIsOpen = false, cb }) {
