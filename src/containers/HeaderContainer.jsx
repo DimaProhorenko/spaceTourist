@@ -27,6 +27,7 @@ function HeaderContainer() {
 		<Header>
 			<Header.Container>
 				<Header.Logo />
+				{!isMobile && <Header.Nav />}
 				{isMobile && <Header.MobileNav isOpen={isMenuOpen} />}
 				{isMobile && (
 					<Header.Toggler

@@ -7,7 +7,7 @@ import navLinks from '../fixtures/nav';
 
 function Header({ children }) {
 	return (
-		<header className="fixed top-0 left-0 w-full py-2 border border-red-500 z-50">
+		<header className="fixed top-0 left-0 w-full z-50">
 			<div className="container">{children}</div>
 		</header>
 	);
@@ -42,15 +42,13 @@ Header.MobileNav = function HeaderMobileNav({
 		>
 			<Header.NavList className="pt-20 px-5 flex flex-col gap-4">
 				{navLinks.map((link, idx) => (
-					<li key={link.id}>
-						<a
-							href={link.address}
-							className="uppercase tracking-wider text-lg"
-						>
-							<span className="mr-4 font-bold">0{idx}</span>
-							{link.text}
-						</a>
-					</li>
+					<Header.NavItem
+						key={link.id}
+						index={idx}
+						href={link.address}
+					>
+						{link.text}
+					</Header.NavItem>
 				))}
 			</Header.NavList>
 			{children}
@@ -63,11 +61,65 @@ Header.MobileNav.propTypes = {
 	isOpen: PropTypes.bool,
 };
 
+Header.Nav = function HeaderNav({ children, ...restProps }) {
+	return (
+		<Header.NavList
+			{...restProps}
+			className="flex gap-4 bg-glass backdrop-blur-md px-16 pt-4 relative before:w-1/2 before:h-px before:bg-white before:absolute before:top-1/2 before:-left-[45%] before:opacity-30"
+		>
+			{navLinks.map((link, idx) => (
+				<Header.NavItem key={link.id} href={link.address} index={idx}>
+					{link.text}
+				</Header.NavItem>
+			))}
+			{children}
+		</Header.NavList>
+	);
+};
+
+Header.Nav.propTypes = {
+	children: PropTypes.any,
+};
+
 Header.NavList = function HeaderNavList({ children, ...restProps }) {
 	return <ul {...restProps}>{children}</ul>;
 };
 
 Header.NavList.propTypes = {
+	children: PropTypes.any.isRequired,
+};
+
+Header.NavItem = function HeaderNavItem({ children, href, index }) {
+	return (
+		<li>
+			<Header.Link>
+				<span className="mr-2 font-bold" href={href}>
+					0{index}
+				</span>
+				{children}
+			</Header.Link>
+		</li>
+	);
+};
+
+Header.NavItem.propTypes = {
+	children: PropTypes.any.isRequired,
+	href: PropTypes.string.isRequired,
+	index: PropTypes.number.isRequired,
+};
+
+Header.Link = function HeaderLink({ children, ...restProps }) {
+	return (
+		<a
+			{...restProps}
+			className="cursor-pointer pb-4 uppercase tracking-wider text-lg inline-block relative before:w-full before:h-px before:bg-white before:absolute before:bottom-px before:inset-x-0 before:scale-x-0 hover:before:scale-x-100"
+		>
+			{children}
+		</a>
+	);
+};
+
+Header.Link.propTypes = {
 	children: PropTypes.any.isRequired,
 };
 

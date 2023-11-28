@@ -12,7 +12,7 @@ export default {
 				'title-lg': '9.375rem',
 			},
 			colors: {
-				glass: 'rgba(255, 255, 255, 0.4)',
+				glass: 'rgba(255, 255, 255, 0.1)',
 			},
 		},
 	},
