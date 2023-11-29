@@ -1,6 +1,6 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-import { Section, Content, Title } from '../components';
+import { Section, Content, Title, NavigationLink } from '../components';
 import bgImage from '../assets/destination/background-destination-desktop.jpg';
 import destinations from '../fixtures/destinations';
 import { DESTINATION } from '../constants/routes';
@@ -26,11 +26,11 @@ function Destination() {
 							<ul className="flex gap-2 justify-center lg:justify-start">
 								{destinations.map((item) => (
 									<li key={item.id}>
-										<Link
+										<NavigationLink
 											to={`/${DESTINATION}/${item.name}`}
 										>
 											{item.name.toUpperCase()}
-										</Link>
+										</NavigationLink>
 									</li>
 								))}
 							</ul>

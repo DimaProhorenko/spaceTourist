@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavigationLink } from './';
 
 import { Logo } from './';
 import burgerIcon from '../assets/shared/icon-hamburger.svg';
@@ -94,10 +94,10 @@ Header.NavList.propTypes = {
 Header.NavItem = function HeaderNavItem({ children, href, index }) {
 	return (
 		<li>
-			<Header.Link href={href}>
+			<NavigationLink href={href}>
 				<span className="mr-2 font-bold">0{index}</span>
 				{children}
-			</Header.Link>
+			</NavigationLink>
 		</li>
 	);
 };
@@ -110,13 +110,13 @@ Header.NavItem.propTypes = {
 
 Header.Link = function HeaderLink({ children, href, ...restProps }) {
 	return (
-		<NavLink
+		<NavigationLink
 			to={href}
 			{...restProps}
 			className="cursor-pointer pb-4 uppercase tracking-wider text-lg inline-block relative before:w-full before:h-px before:bg-white before:absolute before:bottom-px before:inset-x-0 before:scale-x-0 hover:before:scale-x-100 aria-[current=page]:before:scale-x-100"
 		>
 			{children}
-		</NavLink>
+		</NavigationLink>
 	);
 };
 
