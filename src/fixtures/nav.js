@@ -9,7 +9,7 @@ export default [
 	{
 		id: 1,
 		text: 'Destination',
-		address: DESTINATION,
+		address: `${DESTINATION}/moon`,
 	},
 	{
 		id: 2,

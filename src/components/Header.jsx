@@ -37,7 +37,6 @@ Header.MobileNav = function HeaderMobileNav({
 	...restProps
 }) {
 	const transformClass = isOpen ? 'translate-x-0' : 'translate-x-full';
-	console.log(transformClass);
 	return (
 		<nav
 			className={`absolute top-0 right-0 h-screen w-2/3 p-3 bg-glass backdrop-blur-lg z-20  transition-transform ${transformClass}`}

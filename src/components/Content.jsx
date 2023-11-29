@@ -4,7 +4,7 @@ function Content({ children, ...restProps }) {
 	return (
 		<div
 			{...restProps}
-			className="max-w-[500px] mx-auto flex flex-col justify-center min-h-screen gap-10 lg:gap-5 lg:max-w-[900px] lg:flex-row lg:items-center lg:justify-start text-center lg:text-left"
+			className="max-w-[500px] mx-auto pt-10 flex flex-col justify-center min-h-screen gap-10 lg:gap-5 lg:max-w-[900px] lg:flex-row lg:items-center lg:justify-start text-center lg:text-left"
 		>
 			{children}
 		</div>

@@ -5,7 +5,6 @@ function HeaderContainer() {
 	const [windowWidth, setWindowWidth] = useState(0);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const isMobile = windowWidth <= 768;
-	console.log(isMobile);
 
 	useEffect(() => {
 		const handleResize = () => {

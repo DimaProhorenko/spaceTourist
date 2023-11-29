@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 function Title({ children }) {
 	return (
-		<h1 className="text-base md:text-lg lg:text-[28px] uppercase">
+		<h1 className="text-base md:text-lg lg:text-[28px] uppercase mb-8">
 			{children}
 		</h1>
 	);
