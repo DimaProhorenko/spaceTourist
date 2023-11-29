@@ -44,11 +44,7 @@ Header.MobileNav = function HeaderMobileNav({
 		>
 			<Header.NavList className="pt-20 px-5 flex flex-col gap-4">
 				{navLinks.map((link, idx) => (
-					<Header.NavItem
-						key={link.id}
-						index={idx}
-						href={link.address}
-					>
+					<Header.NavItem key={link.id} index={idx} to={link.address}>
 						{link.text}
 					</Header.NavItem>
 				))}
@@ -70,7 +66,7 @@ Header.Nav = function HeaderNav({ children, ...restProps }) {
 			className="flex gap-4 bg-glass backdrop-blur-md px-16 pt-4 relative before:w-1/2 before:h-px before:bg-white before:absolute before:top-1/2 before:-left-[45%] before:opacity-30"
 		>
 			{navLinks.map((link, idx) => (
-				<Header.NavItem key={link.id} href={link.address} index={idx}>
+				<Header.NavItem key={link.id} to={link.address} index={idx}>
 					{link.text}
 				</Header.NavItem>
 			))}
@@ -91,10 +87,10 @@ Header.NavList.propTypes = {
 	children: PropTypes.any.isRequired,
 };
 
-Header.NavItem = function HeaderNavItem({ children, href, index }) {
+Header.NavItem = function HeaderNavItem({ children, to, index }) {
 	return (
 		<li>
-			<NavigationLink href={href}>
+			<NavigationLink to={to}>
 				<span className="mr-2 font-bold">0{index}</span>
 				{children}
 			</NavigationLink>
@@ -104,25 +100,8 @@ Header.NavItem = function HeaderNavItem({ children, href, index }) {
 
 Header.NavItem.propTypes = {
 	children: PropTypes.any.isRequired,
-	href: PropTypes.string.isRequired,
+	to: PropTypes.string.isRequired,
 	index: PropTypes.number.isRequired,
-};
-
-Header.Link = function HeaderLink({ children, href, ...restProps }) {
-	return (
-		<NavigationLink
-			to={href}
-			{...restProps}
-			className="cursor-pointer pb-4 uppercase tracking-wider text-lg inline-block relative before:w-full before:h-px before:bg-white before:absolute before:bottom-px before:inset-x-0 before:scale-x-0 hover:before:scale-x-100 aria-[current=page]:before:scale-x-100"
-		>
-			{children}
-		</NavigationLink>
-	);
-};
-
-Header.Link.propTypes = {
-	children: PropTypes.any.isRequired,
-	href: PropTypes.string.isRequired,
 };
 
 Header.Toggler = function HeaderToggler({ defaultIsOpen = false, cb }) {

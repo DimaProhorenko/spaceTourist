@@ -1,12 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { Home, Destination } from './pages/';
+import { Home, Destinations } from './pages/';
 import HeaderContainer from './containers/HeaderContainer';
 import {
 	CREW,
 	DESTINATION,
 	DESTINATION_INDEX_REDIRECT,
 	DESTINATION_PARAM,
-	DESTINATION_WITH_PARAM,
 	HOME,
 	TECH,
 } from './constants/routes';
@@ -20,7 +19,7 @@ function App() {
 				<Route path={DESTINATION}>
 					<Route
 						path={`:${DESTINATION_PARAM}`}
-						element={<Destination />}
+						element={<Destinations />}
 					/>
 					<Route
 						index
