@@ -1,15 +1,8 @@
 import { useParams } from 'react-router-dom';
 
-import {
-	Destination,
-	Section,
-	Content,
-	Title,
-	NavigationLink,
-} from '../components';
+import { Destination, Section, Content, Title } from '../components';
 import bgImage from '../assets/destination/background-destination-desktop.jpg';
 import destinations from '../fixtures/destinations';
-import { DESTINATION } from '../constants/routes';
 
 function Destinations() {
 	const { name } = useParams();
