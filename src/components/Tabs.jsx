@@ -15,12 +15,14 @@ Tabs.propTypes = {
 	defaultActiveIndex: PropTypes.number,
 };
 
-Tabs.List = function TabsList({ children }) {
-	return <div className="flex gap-2">{children}</div>;
+Tabs.List = function TabsList({ children, className }) {
+	const classes = `flex gap-2 ${className ? className : ''}`;
+	return <div className={classes}>{children}</div>;
 };
 
 Tabs.List.propTypes = {
 	children: PropTypes.any.isRequired,
+	className: PropTypes.string,
 };
 
 Tabs.Tab = function TabsTab({ children, index }) {
@@ -43,15 +45,16 @@ Tabs.Tab.propTypes = {
 	index: PropTypes.number.isRequired,
 };
 
-Tabs.Panel = function TabsPanel({ children, index }) {
+Tabs.Panel = function TabsPanel({ children, index, className }) {
 	const { activeIndex } = TabsContext();
 	const isActive = index === activeIndex;
-	return isActive ? <div>{children}</div> : null;
+	return isActive ? <div className={className}>{children}</div> : null;
 };
 
 Tabs.Panel.propTypes = {
 	children: PropTypes.any.isRequired,
 	index: PropTypes.number.isRequired,
+	className: PropTypes.string,
 };
 
 export default Tabs;

@@ -9,7 +9,7 @@ import navLinks from '../fixtures/nav';
 
 function Header({ children }) {
 	return (
-		<header className="fixed top-0 left-0 w-full z-50">
+		<header className="fixed top-0 left-0 w-full z-50 py-2">
 			<div className="container">{children}</div>
 		</header>
 	);

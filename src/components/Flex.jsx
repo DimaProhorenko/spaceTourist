@@ -17,9 +17,12 @@ Flex.propTypes = {
 	className: PropTypes.string,
 };
 
-Flex.Item = function FlexItem({ children, className, ...restProps }) {
+Flex.Item = function FlexItem({ children, basis, className, ...restProps }) {
 	return (
-		<div className={`lg:basis-1/2 ${className || ''}`} {...restProps}>
+		<div
+			className={`lg:${basis || 'basis-1/2'} ${className || ''}`}
+			{...restProps}
+		>
 			{children}
 		</div>
 	);
@@ -27,6 +30,7 @@ Flex.Item = function FlexItem({ children, className, ...restProps }) {
 
 Flex.Item.propTypes = {
 	children: PropTypes.any.isRequired,
+	basis: PropTypes.string,
 	className: PropTypes.any,
 };
 
