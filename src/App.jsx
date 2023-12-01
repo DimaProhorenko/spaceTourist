@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { Home, Destinations } from './pages/';
+import { Home, Destinations, Crew } from './pages/';
 import HeaderContainer from './containers/HeaderContainer';
 import {
 	CREW,
@@ -28,11 +28,8 @@ function App() {
 						}
 					/>
 				</Route>
-				{/* <Route
-					path={DESTINATION_WITH_PARAM}
-					element={<Destination />}
-				/> */}
-				<Route path={CREW} element={<h1>CREW</h1>} />
+
+				<Route path={CREW} element={<Crew />} />
 				<Route path={TECH} element={<h1>Technology</h1>} />
 			</Routes>
 		</BrowserRouter>

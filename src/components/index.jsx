@@ -1,5 +1,7 @@
 export { default as Section } from './Section';
 export { default as Content } from './Content';
+export { default as Container } from './Container';
+export { default as Flex } from './Flex';
 
 export { default as Logo } from './Logo';
 export { default as NavigationLink } from './NavigationLink';
