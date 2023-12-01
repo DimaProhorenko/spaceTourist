@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { Home, Destinations, Crew } from './pages/';
+import { Home, Destinations, Crew, Techs } from './pages/';
 import HeaderContainer from './containers/HeaderContainer';
 import {
 	CREW,
@@ -30,7 +30,7 @@ function App() {
 				</Route>
 
 				<Route path={CREW} element={<Crew />} />
-				<Route path={TECH} element={<h1>Technology</h1>} />
+				<Route path={TECH} element={<Techs />} />
 			</Routes>
 		</BrowserRouter>
 	);
