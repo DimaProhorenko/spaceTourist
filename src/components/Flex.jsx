@@ -19,7 +19,7 @@ Flex.propTypes = {
 
 Flex.Item = function FlexItem({ children, className, ...restProps }) {
 	return (
-		<div className={`basis-1/2 ${className || ''}`} {...restProps}>
+		<div className={`lg:basis-1/2 ${className || ''}`} {...restProps}>
 			{children}
 		</div>
 	);
