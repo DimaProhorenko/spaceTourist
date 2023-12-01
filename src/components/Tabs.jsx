@@ -1,9 +1,8 @@
-import { useState, Children, isValidElement, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 
 import { TabsProvider, TabsContext } from '../context/TabsContext';
 
-function Tabs({ children, defaultActiveIndex = 0 }) {
+function Tabs({ children }) {
 	return (
 		<TabsProvider>
 			<div>{children}</div>
